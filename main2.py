@@ -24,4 +24,9 @@ async def main():
     await dp.start_polling(bot, allowed_updates=ALLOWED_UPDATES)
 
 
-asyncio.run(main())
+
+try:
+    asyncio.run(main())
+except KeyboardInterrupt:
+    print("Bot stopped")
+    
