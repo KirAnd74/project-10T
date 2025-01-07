@@ -1,8 +1,11 @@
 from aiogram import Router, F
 from aiogram.filters import CommandStart, Command, or_f
 from aiogram.types import Message, CallbackQuery
+from aiogram.fsm.context import FSMContext
 
 from kbds import reply, inline
+from kbds.generators import generate
+from kbds.state import Work
 
 
 user_private_router = Router()
@@ -12,6 +15,17 @@ user_private_router = Router()
 async def start_cmd(message: Message):
     await message.answer("Привет я бот для подготовки к экзаменам по информатике", reply_markup=reply.start_kb)
 
+#aibot"start"
+@user_private_router.message()
+async def ai (message: Message , state:FSMContext):
+    res = await generate(message.text)
+    await message.answer(res.choices[0].message.content)
+    await state.clear()
+    
+@user_private_router.message(Work.process)
+async def stop (message: Message):
+    await message.answer("Подождите, идет обработка задания")
+#aibot"end"
 
 @user_private_router.message(or_f(Command("menu"), (F.text.lower() == "меню")))
 async def menu(message: Message):
@@ -169,17 +183,17 @@ async def menu(message: Message):
 
 @user_private_router.message(F.text == "📔1")
 async def menu(message: Message):
-   await message.answer(
-      f"Выбери задачу",
-      reply_markup=inline.og_pr1_kb,
-   )
+    await message.answer(
+        f"Выберете номер задания:",
+        reply_markup=inline.og_pr1_kb,
+    )
 
 @user_private_router.callback_query(F.data == "1")
 async def menu(callback: CallbackQuery):
-   await callback.message.answer(
-      f"1",
-      reply_markup=inline.og_pr1_kb,
-   )
+    await callback.message.answer(
+        f"Задача №1\nВ кодировке КОИ-8 каждый символ кодируется 8 битами.\n Аня написала текст (в нем нет лишних пробелов)\n:«ерш, Щука, Бычок, Карась, Гимнура, Долгопер  — рыбы».\nУченик вычеркнул из списка название одной из рыб. Заодно он вычеркнул ставшие лишними запятые и пробелы  — два пробела не должны идти подряд.При этом размер нового предложения в данной кодировке оказался на 10 байтов меньше, чем размер исходного предложения. Напишите в ответе вычеркнутое название рыбы.Введите ответ:",
+        reply_markup=reply.og_pr1_kb,
+    )
 
 
 @user_private_router.message(or_f(Command("ege"), (F.text == "ЕГЭ")))  # ЕGE
