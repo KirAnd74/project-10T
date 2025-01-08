@@ -10,7 +10,7 @@ from kbds.generators import generate
 from kbds.state import Work
 
 
- #class Practika_Oge(Scene , state = 'menu'):
+#class Menu(Scene , state = 'menu'):
 
 
 user_private_router = Router()
@@ -21,25 +21,11 @@ async def start_cmd(message: Message):
     await message.answer("Привет я бот для подготовки к экзаменам по информатике", reply_markup=reply.start_kb)
 
 
+
+
 @user_private_router.message((F.text == "Назад"))
 async def menu(message: Message):
     await message.answer("Привет я бот для подготовки к экзаменам по информатике", reply_markup=reply.start_kb)
-
-
-# aibot"start"
-@user_private_router.message((F.text == "аи"))
-async def ai(message: Message, state: FSMContext):
-    res = await generate(message.text)
-    await message.answer(res.choices[0].message.content, reply_markup=reply.ai_kb)
-    await state.clear()
-
-
-@user_private_router.message(Work.process)
-async def stop(message: Message):
-    await message.answer("Подождите, идет обработка задания")
-
-
-# aibot"end"
 
 
 @user_private_router.message(or_f(Command("oge"), (F.text == "ОГЭ")))  # OGE
@@ -186,14 +172,12 @@ async def menu(message: Message):
         reply_markup=reply.oge_practika_kb,
     )
 
-
 @user_private_router.message(F.text == "📔1")
 async def menu(message: Message):
     await message.answer(
         f"Выберете номер задания:",
         reply_markup=inline.og_pr1_kb,
     )
-
 
 @user_private_router.callback_query(F.data == "1")
 async def menu(callback: CallbackQuery):
@@ -450,3 +434,15 @@ async def menu(message: Message):
         "https://telegra.ph/Zadanie-27Programmirovanie-11-20",
         reply_markup=reply.ege_razbor_str2_kb,
     )
+
+#aibot"start"
+@user_private_router.message()
+async def ai (message: Message , state:FSMContext):
+    res = await generate(message.text)
+    await message.answer(res.choices[0].message.content,reply_markup=reply.ai_kb)
+    await state.clear()
+    
+@user_private_router.message(Work.process)
+async def stop (message: Message):
+    await message.answer("Подождите, идет обработка задания")
+#aibot"end"
