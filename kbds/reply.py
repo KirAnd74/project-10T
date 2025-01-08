@@ -8,11 +8,11 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder
 start_kb = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="Меню"),
+            KeyboardButton(text="ЕГЭ"),
             KeyboardButton(text="ОГЭ"),
         ],
         {
-            KeyboardButton(text="ЕГЭ"),
+            KeyboardButton(text="аи"),
             KeyboardButton(text="Помощь"),
         },
     ],
@@ -20,6 +20,10 @@ start_kb = ReplyKeyboardMarkup(
     input_field_placeholder="Что вас интерисует?",
 )
 del_kbd = ReplyKeyboardRemove()
+
+ai_kb = ReplyKeyboardMarkup(keyboard=[[
+    KeyboardButton(text="Назад"),
+]])
 
 oge_kb = ReplyKeyboardMarkup(
     keyboard=[
