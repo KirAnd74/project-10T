@@ -9,10 +9,6 @@ from kbds import reply, inline
 from kbds.generators import generate
 from kbds.state import Work
 
-
-#class Menu(Scene , state = 'menu'):
-
-
 user_private_router = Router()
 
 
@@ -445,4 +441,4 @@ async def ai (message: Message , state:FSMContext):
 @user_private_router.message(Work.process)
 async def stop (message: Message):
     await message.answer("Подождите, идет обработка задания")
-#aibot"end"
+#aibot"end"""
