@@ -171,17 +171,27 @@ async def menu(message: Message):
 @user_private_router.message(F.text == "📔1")
 async def menu(message: Message):
     await message.answer(
-        f"Выберете номер задания:",
-        reply_markup=inline.og_pr1_kb,
+        f"Вариант 1: https://telegra.ph/Variant-1-01-19-2",
+        reply_markup=reply.oge_practika_kb,
     )
-
-@user_private_router.callback_query(F.data == "1")
-async def menu(callback: CallbackQuery):
-    await callback.message.answer(
-        f"Задача №1\nВ кодировке КОИ-8 каждый символ кодируется 8 битами.\n Аня написала текст (в нем нет лишних пробелов)\n:«ерш, Щука, Бычок, Карась, Гимнура, Долгопер  — рыбы».\nУченик вычеркнул из списка название одной из рыб. Заодно он вычеркнул ставшие лишними запятые и пробелы  — два пробела не должны идти подряд.При этом размер нового предложения в данной кодировке оказался на 10 байтов меньше, чем размер исходного предложения. Напишите в ответе вычеркнутое название рыбы.Введите ответ:",
-        reply_markup=reply.og_pr1_kb,
+@user_private_router.message(F.text == "📔2")
+async def menu(message: Message):
+    await message.answer(
+        f"Вариант 2: https://telegra.ph/Variant-2-01-19",
+        reply_markup=reply.oge_practika_kb,
     )
-
+@user_private_router.message(F.text == "📔3")
+async def menu(message: Message):
+    await message.answer(
+        f"Вариант 3:https://telegra.ph/Variant-3-01-19-2",
+        reply_markup=reply.oge_practika_kb,
+    )
+@user_private_router.message(F.text == "📔4")
+async def menu(message: Message):
+    await message.answer(
+        f"Вариант 4:https://telegra.ph/Variant-4-01-19",
+        reply_markup=reply.oge_practika_kb,
+    )
 
 @user_private_router.message(or_f(Command("ege"), (F.text == "ЕГЭ")))  # ЕGE
 async def menu(message: Message):
