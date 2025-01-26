@@ -441,6 +441,37 @@ async def menu(message: Message):
         reply_markup=reply.ege_razbor_str2_kb,
     )
 
+
+@user_private_router.message(F.text == "✏️Практика")
+async def menu(message: Message):
+    await message.answer(
+        f"Готов по практиковаться?\n В этом блоке будут и просты и сложные задачи. ",
+        reply_markup=reply.ege_practika_kb,)
+    
+@user_private_router.message(F.text == "📓1")
+async def menu(message: Message):
+    await message.answer(
+        f"Вариант 1: https://telegra.ph/Variant-1-01-25",
+        reply_markup=reply.ege_practika_kb,
+    )
+@user_private_router.message(F.text == "📓2")
+async def menu(message: Message):
+    await message.answer(
+        f"Вариант 2: https://telegra.ph/Variant-1-01-25-2",
+        reply_markup=reply.ege_practika_kb,
+    )
+@user_private_router.message(F.text == "📓3")
+async def menu(message: Message):
+    await message.answer(
+        f"Вариант 3: https://telegra.ph/Variant-3-01-25 ",
+        reply_markup=reply.ege_practika_kb,
+    )
+@user_private_router.message(F.text == "📓4")
+async def menu(message: Message):
+    await message.answer(
+        f"Вариант 4: https://telegra.ph/Variant-4-01-25 \n Продолжение: https://telegra.ph/Variant-42-01-25",
+        reply_markup=reply.ege_practika_kb,
+    )
 #aibot"start"
 @user_private_router.message()
 async def ai (message: Message , state:FSMContext):

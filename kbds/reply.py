@@ -172,3 +172,21 @@ ege_razbor_str2_kb = ReplyKeyboardMarkup(
     resize_keyboard=True,
     input_field_placeholder="Что вас интерисует?",
 )
+ege_practika_kb = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text="📓1"),
+            KeyboardButton(text="📓2"),
+        ],
+        {
+            KeyboardButton(text="📓3"),
+            KeyboardButton(text="📓4"),
+        },
+        {
+            KeyboardButton(text="🔙Назад"),
+        },
+    ],
+    resize_keyboard=True,
+    input_field_placeholder="Что вас интерисует?",
+)
+
