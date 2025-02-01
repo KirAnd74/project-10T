@@ -12,7 +12,7 @@ start_kb = ReplyKeyboardMarkup(
             KeyboardButton(text="ОГЭ"),
         ],
         {
-            KeyboardButton(text="ИИ"),
+            KeyboardButton(text="АИ"),
             KeyboardButton(text="Помощь"),
         },
     ],
