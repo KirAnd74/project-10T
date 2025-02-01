@@ -24,6 +24,13 @@ del_kbd = ReplyKeyboardRemove()
 ai_kb = ReplyKeyboardMarkup(keyboard=[[
     KeyboardButton(text="Назад"),
 ]])
+help_kb = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text="Назад"),
+        ]
+    ]
+)
 
 oge_kb = ReplyKeyboardMarkup(
     keyboard=[
