@@ -397,7 +397,7 @@ async def menu(message: Message):
 @user_private_router.message(F.text.lower() == "✏️22")
 async def menu(message: Message):
     await message.answer(
-        "",
+        "https://telegra.ph/Zadanie-22Mnogoprocessornye-sistemy-02-01",
         reply_markup=reply.ege_razbor_str2_kb,
     )
 
@@ -421,7 +421,7 @@ async def menu(message: Message):
 @user_private_router.message(F.text.lower() == "✏️25")
 async def menu(message: Message):
     await message.answer(
-        "",
+        "https://telegra.ph/Zadanie-25Obrabotka-celochislennoj-informacii-02-01",
         reply_markup=reply.ege_razbor_str2_kb,
     )
 
