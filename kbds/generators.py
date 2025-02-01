@@ -8,7 +8,7 @@ async def generate(content):
         api_key=os.getenv("AI_TOKEN"),
     ) as mistral:
 
-        res = await mistral.chat.complete_async(model="pixtral-12b-2409", messages=[
+        res = await mistral.chat.complete_async(model="mistral-large-latest", messages=[
             {
                 "content": content,
                 "role": "user",
