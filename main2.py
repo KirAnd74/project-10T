@@ -14,7 +14,7 @@ from common.bot_cmds_list import private
 ALLOWED_UPDATES = ["message , edit_message"]
 
 
-bot = Bot(token=os.getenv("TOKEN") 
+bot = Bot(token="7700371957:AAGAjFimjK4U_yCy_mCBzgqOH27Ipitglho"#os.getenv("TOKEN") 
           #, default=DefaultBotProperties(parse_mode=ParseMode.HTML)
           )
 
