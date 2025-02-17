@@ -10,6 +10,7 @@ start_kb = ReplyKeyboardMarkup(
         [
             KeyboardButton(text="ЕГЭ"),
             KeyboardButton(text="ОГЭ"),
+            KeyboardButton(text="Обучение")
         ],
         {
             KeyboardButton(text="АИ"),
@@ -197,3 +198,15 @@ ege_practika_kb = ReplyKeyboardMarkup(
     input_field_placeholder="Что вас интерисует?",
 )
 
+study_kb = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+          KeyboardButton(text="📖ОГЭ"),
+          KeyboardButton(text="📖ЕГЭ"),
+          KeyboardButton(text="📖Python"),
+        ],
+        {
+            KeyboardButton(text="Назад")
+        }
+    ]
+)

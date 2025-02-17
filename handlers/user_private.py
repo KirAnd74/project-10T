@@ -131,8 +131,19 @@ async def start_cmd(message: Message):
 
     await message.answer("Привет я бот для подготовки к экзаменам по информатике", reply_markup=reply.start_kb)
 
+@user_private_router.message(F.text == "Обучение")
+async def study(message: Message):
+    await message.answer(
+        "Здесь будет roadmap для подготовки к экзамену", reply_markup=reply.study_kb
+    )
+@user_private_router.message(F.text == "📖Python")
+async def study(message: Message):
+    await message.answer(
+        'https://telegra.ph/Roadmap-po-izucheniyu-Python-02-17', reply_markup=reply.study_kb
+    )
 
-@user_private_router.message(F.text == "Назад")
+
+@user_private_router.message(F.text == 'Назад')
 
 async def menu(message: Message):
 
