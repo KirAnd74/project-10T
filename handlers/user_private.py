@@ -142,6 +142,18 @@ async def study(message: Message):
         'https://telegra.ph/Roadmap-po-izucheniyu-Python-02-17', reply_markup=reply.study_kb
     )
 
+@user_private_router.message(F.text == "📖ОГЭ")
+async def study(message:Message):
+    await message.answer(
+        "https://telegra.ph/Roadmap-podgotovki-k-OGEH-po-informatike-02-18", reply_markup=reply.study_kb
+    )
+
+@user_private_router.message(F.text == "📖ЕГЭ")
+async def study(message: Message):
+    await message.answer(
+        "https://telegra.ph/Roadmap-podgotovki-k-EGEH-po-informatike-02-18", reply_markup=reply.study_kb
+    )
+
 
 @user_private_router.message(F.text == 'Назад')
 
